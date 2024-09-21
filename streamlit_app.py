@@ -10,7 +10,7 @@ st.write('Hello world!')
 
 with st.expander('Data'):
   st.write('**Raw Data**') # using the markdown here
-  df = pd.read_csv("https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv")
+  df = pd.read_csv("https://raw.githubusercontent.com/Kumoyyds/ds_tools_smlt_app/refs/heads/main/penguins_cleaned.csv")
   df  
   
   st.write('**X**')   
@@ -122,5 +122,5 @@ st.dataframe(df_prediction_proba,
                ),
              }, hide_index=True)
 
-
+predicted_result = df_prediction_proba.idxmax(axis=1).values[0]
 st.success('This is a success message!', icon="✅")
