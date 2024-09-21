@@ -2,16 +2,12 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-st.title('🎈 ml app')
-st.info('this is a machine learning mapp')
-
-st.write('Hello world!')
-
-
-with st.expander('Data'):
-  st.write('**Raw Data**') # using the markdown here
+st.title('🎈 machine learning app')
+st.info('This project is to predict the penguin species given biological and physical measurements')
+st.info('🤖 RandomForestClassifier')
+st.write('**Basic EDA Work**')
+with st.expander('Raw Data'):
   df = pd.read_csv("https://raw.githubusercontent.com/Kumoyyds/ds_tools_smlt_app/refs/heads/main/penguins_cleaned.csv")
-  df  
   
   st.write('**X**')   
   X_raw = df.drop('species', axis=1)
@@ -21,7 +17,7 @@ with st.expander('Data'):
   Y = df.species
   Y
   
-with st.expander('Data visualization'):
+with st.expander('Data Visualization'):
   # referring to https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart please
   st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
 
@@ -47,11 +43,12 @@ with st.sidebar:
           'body_mass_g': body_mass_g,
           'sex': gender}
   input_df = pd.DataFrame(data, index=[0]) 
+  st.write('*input info*')
   input_df
 
   input_penguins = pd.concat([input_df, X_raw], axis=0)
-  input_penguins
-with st.expander('Input features'):
+
+with st.expander('Input Features'):
   st.write('**Input penguin**')
   input_df
   st.write('**Combined penguins data**')
@@ -61,8 +58,7 @@ encode = ['island', 'sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 # refer to https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html#reshaping-dummies
 
-with st.expander('dummies'):
-  st.write('**here we are**')
+with st.expander('Dummies'):
   df_penguins
   
 X = df_penguins[1:]
@@ -123,4 +119,4 @@ st.dataframe(df_prediction_proba,
              }, hide_index=True)
 
 predicted_result = df_prediction_proba.idxmax(axis=1).values[0]
-st.success(f'The predicted result is {predicted_result}', icon="🤔")
+st.success(f'The predicted species is {predicted_result}', icon="🤔")
