@@ -19,4 +19,8 @@ The original dataset is from [palmerpenguins](https://github.com/allisonhorst/pa
 4. run the container `docker run -p 8501:8501  <image_name>`  
 And the you will get it.  
 
-
+# UI
+![alt text](image.png)
+Here's the demo of user interface.   
+There's a left bar to input your observations, and then on the right you would see the probability for each species of penguins the model predict, and the predicted result is the species with the highest probability.   
+The used data is also displayed, click the expander to see it!
