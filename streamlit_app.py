@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-st.title('🎈 machine learning app')
+st.title('🎈 Machine Learning App')
 st.info('This project is to predict the penguin species given biological and physical measurements')
 st.info('🤖 RandomForestClassifier')
 st.write('**Basic EDA Work**')
@@ -119,4 +119,4 @@ st.dataframe(df_prediction_proba,
              }, hide_index=True)
 
 predicted_result = df_prediction_proba.idxmax(axis=1).values[0]
-st.success(f'The predicted species is {predicted_result}', icon="🤔")
+st.success(f'The predicted species is 🐧{predicted_result}🐧', icon="🤔")
