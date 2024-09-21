@@ -123,4 +123,4 @@ st.dataframe(df_prediction_proba,
              }, hide_index=True)
 
 predicted_result = df_prediction_proba.idxmax(axis=1).values[0]
-st.success('This is a success message!', icon="✅")
+st.success(f'The predicted result is {predicted_result}', icon="🤔")
